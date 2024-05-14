@@ -3,8 +3,8 @@
   hosts: localhost
   vars:
     WISHES: "Morning from PLAYBOOK variable"
-  vars_files:
-    - vars.yaml # variables declared in the vars.yaml
+  # vars_files:
+  #   - vars.yaml # variables declared in the vars.yaml
   vars_prompt:
     - name: WISHES
       prompt: "please enter WISHES"
@@ -19,4 +19,5 @@
 
 # 1st preference goes to arguments:
 # 2nd preference goes to task level arguments:
+# 3rd preference goes to variable files
 #
