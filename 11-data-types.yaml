@@ -3,18 +3,18 @@
   vars:
     course: Devops with Aws # string
     Tools: # list
-    - Linux
-    - shell
-    - ansible
-    - python
-    - docker
-    - git
+      - Linux
+      - shell
+      - ansible
+      - python
+      - docker
+      - git
     Experience: # map or distionary
-      Devops: 3  # number
+      Devops: 3 # number
       Aws: 2
       docker: 1
-    RealProject: true  # boolean
+    RealProject: true # boolean
   tasks:
-  -  name: print variables
-    ansible.builtin.debug:
-    msg: "course: {{course}}, tools covered: {{Tools}}, Experience is: {{Experience}}, real project: {{Realproject}}"
+    - name: print variables
+      ansible.builtin.debug:
+        msg: "course: {{course}}, tools covered: {{Tools}}, Experience is: {{Experience}}, real project: {{RealProject}}"
