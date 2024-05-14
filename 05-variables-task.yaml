@@ -1,0 +1,16 @@
+- name: variables
+  host: localhost
+  vars: # play level variable declaration
+    Course: "terraform"
+    Trainer: "sivakumar"
+    Duration: "120hrs"
+  tasks:
+    - name: print information # task 1
+      vars: # task level variable declaration---- this variable only belongs to this task.
+        Course: "devops"
+      ansible.builtin.debug: #debug is a module, it is used to print the message
+        msg: "hi, we are learning: {{ Course }} from Trainer: {{ Trainer }}, Duration is : {{ Duration }}."
+
+    - name: print information # task 2
+      ansible.builtin.debug: #debug is a module, it is used to print the message
+        msg: "hi, we are learning: {{ Course }} from Trainer: {{ Trainer }}, Duration is : {{ Duration }}."

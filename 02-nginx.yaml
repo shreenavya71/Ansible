@@ -1,0 +1,14 @@
+- name: installing nginx in the server
+  hosts: web
+  become: yes # equal to -b in adhoc commands, become is used to become the root user(getting root access)
+  tasks:
+    - name: installing nginx # task name
+      ansible.builtin.dnf: # module
+        name: nginx
+        state: latest
+
+    - name: starting nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started # starting and enabling nginx in one task
+        enabled: yes

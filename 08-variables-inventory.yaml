@@ -1,0 +1,8 @@
+- name: variable from inventory file   # - this - means play starts from here
+  hosts: localhost
+  tasks:
+    - name: print information
+      vars: 
+        timings: "07:15 AM IST"
+      ansible.builtin.debug: #debug is a module, it is used to print the message
+        msg: "hi, we are learning: {{ Course }} from Trainer: {{ Trainer }}, Duration is : {{ Duration }} Timings are : {{ Timings}}"

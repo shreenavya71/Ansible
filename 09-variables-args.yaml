@@ -1,0 +1,10 @@
+- name: variables from arguments
+  hosts: localhost
+  tasks:
+  - name: get variables from arguments
+    ansible.builtin.debug:
+      msg: "hello {{PERSON}}, Good {{WISHER}}"
+
+      # -e "PERSON=ramesh WISHER=morning"  passing variable arguments while executing the script.
+      # -e ----means extras.
+      

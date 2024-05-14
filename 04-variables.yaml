@@ -1,0 +1,10 @@
+- name: variables # - this - means 1st play starts from here
+  hosts: localhost
+  vars: # play level variable declaration
+    Course: "Ansible"
+    Trainer: "sivakumar"
+    Duration: "120hrs"
+  tasks:
+    - name: print information
+      ansible.builtin.debug:                      #debug is a module, it is used to print the message
+        msg: "hi, we are learning: {{ Course }} from Trainer: {{ Trainer }}, Duration is : {{ Duration }}."

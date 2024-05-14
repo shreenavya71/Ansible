@@ -1,0 +1,13 @@
+- name: variables from prompt
+  hosts: localhost
+  vars_prompt:  # this module is used to give some private variables which will not be seen by others, we can give them while running the script
+  - name: USERNAME
+    prompt: please enter a username
+    private: false  #private: false means whatever we are trying it will display on the screen
+  - name: PASSWORD
+    prompt: please enter a password
+    private: true  #private: true means whatever we are trying it will not display on the screen
+  tasks:
+  - name: print information
+    ansible.builtin.debug:
+      msg: "Hi, username: {{ USERNAME }}. password is : {{ PASSWORD }}"

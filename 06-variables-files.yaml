@@ -1,0 +1,8 @@
+- name: variable from file # - this - means play starts from here
+  hosts: localhost
+  vars_files: # play level variable file
+    - vars.yaml # its a file name where variables are stored or (declared)
+  tasks:
+    - name: print information
+      ansible.builtin.debug: #debug is a module, it is used to print the message
+        msg: "hi, we are learning: {{ Course }} from Trainer: {{ Trainer }}, Duration is : {{ Duration }}."
