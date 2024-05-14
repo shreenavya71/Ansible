@@ -8,4 +8,4 @@
 
   - name: say Hello
     ansible.builtin.debug:
-    msg: "Hello"
+      msg: "Hello"
