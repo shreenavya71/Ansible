@@ -1,8 +1,8 @@
 # in this playbook we have declared variables everywhere, and we want check that from where ansible will take the variable values
 - name: variable preference
   hosts: localhost
-  vars:
-    WISHES: "Morning from PLAYBOOK variable"
+  # vars:
+  #   WISHES: "Morning from PLAYBOOK variable"
   # vars_files:
   #   - vars.yaml # variables declared in the vars.yaml
   # vars_prompt:
@@ -21,4 +21,5 @@
 # 2nd preference goes to task level arguments:
 # 3rd preference goes to variable files
 # 4th preference goes to variable from prompt
-# 5th preference goes to
+# 5th preference goes to variable from playbook
+# 6th preference goes to variable from inventory
