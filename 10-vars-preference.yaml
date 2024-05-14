@@ -5,10 +5,10 @@
     WISHES: "Morning from PLAYBOOK variable"
   # vars_files:
   #   - vars.yaml # variables declared in the vars.yaml
-  vars_prompt:
-    - name: WISHES
-      prompt: "please enter WISHES"
-      private: false
+  # vars_prompt:
+  #   - name: WISHES
+  #     prompt: "please enter WISHES"
+  #     private: false
   tasks:
     - name: check preference
       # vars:
@@ -20,4 +20,5 @@
 # 1st preference goes to arguments:
 # 2nd preference goes to task level arguments:
 # 3rd preference goes to variable files
-#
+# 4th preference goes to variable from prompt
+# 5th preference goes to
