@@ -2,17 +2,12 @@
   hosts: localhost
   become: true
   tasks:
-  - name: install packages
-    ansible:builtin.debug:
-      name: {{item}}
-      state: latest
-    loops:
-    - name: installing and removing packages
-      ansible:builtin.debug:
-        name: {{item.name}}
-        state: {{item.state}}
-      loops:
-      - { name: 'mysql', state: 'install'} # item
-      - { name: 'git', state: 'absent' }
-      - { name: 'docker', state: 'latest' }
+  - name: installing and removing packages
+    ansible.builtin.dnf:
+      name: "{{item.name}}"                 # {{item }} is a reserved key word to print loops in ansible
+      state: "{{item.state}}"
+    loop:                                          # Ansible offers the loop, keyword to execute a task multiple times.
+    - { name: 'mysql', state: 'install'} # item
+    - { name: 'git', state: 'absent' }
+    - { name: 'docker', state: 'latest' }
     
