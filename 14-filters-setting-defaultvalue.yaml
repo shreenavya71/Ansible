@@ -1,3 +1,5 @@
+# number of playbook for each filters
+
 - name: setting default value
   hosts: localhost
   tasks:
@@ -31,3 +33,46 @@
     - name: remove duplicates
       ansible.builtin.debug:
         msg: "{{ numbers | unique }}"
+
+- name: print min and max values
+  hosts: localhost
+  vars:
+    ages: [26, 86, 35, 2, 29, 36]
+  tasks:
+    - name: print min and max values
+      ansible.builtin.debug:
+        msg: "min age: {{ age | min }}, max age: {{ age | max }}"
+
+- name: convert dictionary into items/list
+  hosts: localhost
+  vars:
+    my_dict:
+      course: Devops
+      duration: 3-months
+      trainer: sivakumar
+      location: India
+  tasks:
+  - name: before conversion
+    ansible.builtin.debug: 
+      msg: "Before conversion: {{ my_dict }}"
+  - name: after conversion
+    ansible.builtin.debug:
+      msg: "After conversion: {{ my_dict | dict2items }}"
+
+
+- name: convert list/items to dictionary
+  hosts: localhost
+  vars:
+    my_list:
+      - {'key': 'course', 'value': 'Ansible'}
+      - {'key': 'duration', 'value': '3-months'}
+      - {'key': 'trainer', 'value':'sivakumar'}
+      - {'key': 'location', 'value': 'India'} 
+  tasks:
+  - name: before conversion
+    ansible.builtin.debug:
+      msg: "before conversion {{ my_list }} "
+  
+  - name: after conversion
+    ansible.builtin.debug:
+      msg: "after conversion {{ my_list | items2dict }}"
