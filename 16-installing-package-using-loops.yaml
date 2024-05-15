@@ -1,4 +1,4 @@
-- name: installing package using loops
+- name: installing package using loop
   hosts: localhost
   become: true
   tasks:
@@ -6,7 +6,7 @@
     ansible.builtin.dnf:
       name: "{{ item }}"
       state: latest
-    loop:
+    loop:             # Ansible offers the loop, keyword to execute a task multiple times.
     - mysql
     - nginx
     - postfix
