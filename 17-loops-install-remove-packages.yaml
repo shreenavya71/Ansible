@@ -7,7 +7,7 @@
       name: "{{item.name}}"                 # {{item }} is a reserved key word to print loops in ansible
       state: "{{item.state}}"
     loop:                                          # Ansible offers the loop, keyword to execute a task multiple times.
-    - { name: 'mysql', state: 'install'} # item
+    - { name: 'mysql', state: 'latest'} # item
     - { name: 'git', state: 'absent' }
     - { name: 'docker', state: 'latest' }
     
